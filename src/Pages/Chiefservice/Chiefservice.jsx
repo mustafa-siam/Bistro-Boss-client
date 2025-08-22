@@ -3,7 +3,7 @@ import chiefservice from "../../assets/home/chef-service.jpg"
 const Chiefservice = () => {
     return (
         <div
-  className="hero min-h-screen"
+  className="hero min-h-screen bg-fixed"
   style={{
     backgroundImage:
       `url(${chiefservice})`,
