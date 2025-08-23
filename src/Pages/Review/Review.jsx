@@ -12,7 +12,7 @@ import Heading from '../SectionHeading/Heading';
 const Review = () => {
     const [review,setreview]=useState([])
     useEffect(()=>{
-        fetch('reviews.json')
+        fetch('http://localhost:5000/review')
         .then(res=>res.json())
         .then(data=>setreview(data))
     },[])

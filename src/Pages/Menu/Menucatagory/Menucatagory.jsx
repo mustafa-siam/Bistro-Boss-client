@@ -17,8 +17,8 @@ const Menucatagory = ({items,title,img,details}) => {
                     items.map(item=><Menuitem key={item._id} item={item}></Menuitem>)
                 }
             </div>
-            <div>
-                <Link to={`/order/${title}`}><button>Order Now</button></Link>
+            <div className='text-center'>
+                <Link to={`/order/${title}`}><button className='btn border-b-3 border-b-black'>ORDER YOUR FAVOURITE FOOD</button></Link>
                 
             </div>
         </div>

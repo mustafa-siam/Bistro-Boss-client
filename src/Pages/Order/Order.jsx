@@ -26,12 +26,12 @@ const Order = () => {
             </Helmet>
             <Cover image={orderimg} title={"OUR SHOP"} details={"Would you like to try a dish?"}></Cover>
             <Tabs selectedIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
-      <TabList>
-        <Tab>Dessert</Tab>
-        <Tab>Soup</Tab>
-        <Tab>Pizza</Tab>
-        <Tab>Salad</Tab>
-        <Tab>Drinks</Tab>
+      <TabList className={'flex justify-center items-center gap-12 my-12 '}>
+        <Tab className={'pb-2 cursor-pointer'} selectedClassName="text-[#BB8506] border-b-2 border-[#BB8506] font-semibold">Dessert</Tab>
+        <Tab className={'pb-2 cursor-pointer'} selectedClassName="text-[#BB8506] border-b-2 border-[#BB8506] font-semibold">Soup</Tab>
+        <Tab className={'pb-2 cursor-pointer'} selectedClassName="text-[#BB8506] border-b-2 border-[#BB8506] font-semibold">Pizza</Tab>
+        <Tab className={'pb-2 cursor-pointer'} selectedClassName="text-[#BB8506] border-b-2 border-[#BB8506] font-semibold">Salad</Tab>
+        <Tab className={'pb-2 cursor-pointer'} selectedClassName="text-[#BB8506] border-b-2 border-[#BB8506] font-semibold">Drinks</Tab>
       </TabList>
       <TabPanel>
         <Ordercatagory items={dessert}></Ordercatagory>
