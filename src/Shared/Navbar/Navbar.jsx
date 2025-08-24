@@ -1,7 +1,41 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { authcontext } from '../../provider/Authprovider';
+import Swal from 'sweetalert2';
 
 const Navbar = () => {
+  const {user,logout}=useContext(authcontext)
+  console.log(user.displayName)
+  const handlelogout=()=>{
+    logout()
+    .then(()=>{
+      Swal.fire({
+        title: "SignOut successfull",
+        showConfirmButton:false,
+        timer:3000,
+        icon:'success',
+        showClass: {
+          popup: `
+            animate__animated
+            animate__fadeInUp
+            animate__faster
+          `
+        },
+        hideClass: {
+          popup: `
+            animate__animated
+            animate__fadeOutDown
+            animate__faster
+          `
+        }
+      });
+    })
+  }
+  const navlinks=<>
+  <li><Link to={'/'}>Home</Link></li>
+      <li><Link to={'/order/Dessert'}>Our Shop</Link></li>
+      <li><Link to={'/menu'}>Menu</Link></li>
+  </>
     return ( 
        <div className="navbar opacity-30 bg-black text-white fixed z-20 max-w-7xl">
   <div className="navbar-start">
@@ -23,28 +57,25 @@ const Navbar = () => {
       <ul
         tabIndex={0}
         className="menu menu-sm dropdown-content bg-black rounded-box z-[1] mt-3 w-52 p-2 shadow text-white">
-        <li><a>Item 1</a></li>
-        <li>
-          <a>Parent</a>
-          <ul className="p-2 bg-black text-white">
-            <li><a>Submenu 1</a></li>
-            <li><a>Submenu 2</a></li>
-          </ul>
-        </li>
-        <li><a>Item 3</a></li>
+         {
+          navlinks
+         }
       </ul>
     </div>
     <a className="btn btn-ghost text-xl text-white">Bistro Boss</a>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1 text-white">
-      <li><Link to={'/'}>Home</Link></li>
-      <li><Link to={'/order/Dessert'}>Our Shop</Link></li>
-      <li><Link to={'/menu'}>Menu</Link></li>
+      {navlinks}
     </ul>
   </div>
   <div className="navbar-end">
-    <a className="btn bg-white text-black">Button</a>
+    {
+      user ? <button onClick={handlelogout} className="btn bg-white text-black">LogOut</button> 
+      :
+<button  className="btn bg-white text-black"><Link to={'/login'}>LogIn</Link> </button>
+    }
+    
   </div>
 </div>
     );
