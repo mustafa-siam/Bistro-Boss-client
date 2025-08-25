@@ -5,7 +5,6 @@ import { Outlet, useLocation } from 'react-router-dom';
 
 const Mainlayout = () => {
     const loacation=useLocation();
-    console.log(loacation)
     const noheaderfooter=loacation.pathname.includes('/register') || loacation.pathname.includes('/login')
     return (
         <div className='max-w-7xl mx-auto space-y-12'>

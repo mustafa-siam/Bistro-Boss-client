@@ -21,7 +21,7 @@ const router = createBrowserRouter([
       element:<Menu></Menu>
     },{
       path:'/order/:catagory',
-      element:<Privateroute><Order></Order></Privateroute> 
+      element:<Order></Order>
     },
     {
       path:'/register',
