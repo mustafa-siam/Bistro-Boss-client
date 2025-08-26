@@ -3,18 +3,21 @@ import { authcontext } from '../../provider/Authprovider';
 import Swal from 'sweetalert2';
 import { useLocation, useNavigate } from 'react-router-dom';
 import useAxiosSecure from '../../Hooks/UseAxiosSecure';
+import useCarts from '../../Hooks/UseCarts';
 
 const Foodcart = ({item}) => {
   const axiosinstance=useAxiosSecure()
   const {user}=useContext(authcontext)
+  const [,refetch]=useCarts();
   const navigate=useNavigate()
   const location=useLocation();
     const {name,recipe,image,_id,price}=item
-    const handleaddcart=async(item)=>{
+    const handleaddcart=async()=>{
       if(user?.email){
  console.log(item,name)
  const cartitem={
      menuid:_id,
+     email:user.email,
      name,
      recipe,
      image,
@@ -29,6 +32,7 @@ if(res.data.insertedId){
   showConfirmButton: false,
   timer: 1500
 });
+refetch();
 }
 console.log(res.data)
       }
@@ -59,7 +63,7 @@ console.log(res.data)
     <h2 className="card-title">{name}</h2>
     <p>{recipe}</p>
     <div className="card-actions justify-center">
-      <button onClick={()=>handleaddcart(item)} className='btn border-b-3 text-[#BB8506] border-b-[#BB8506]'>add to cart</button>
+      <button onClick={handleaddcart} className='btn border-b-3 text-[#BB8506] border-b-[#BB8506]'>add to cart</button>
     </div>
   </div>
 </div>

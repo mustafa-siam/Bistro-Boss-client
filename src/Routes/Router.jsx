@@ -9,6 +9,7 @@ import Order from "../Pages/Order/Order";
 import Registration from "../Accounts/Registration";
 import Login from "../Accounts/Login";
 import Privateroute from "../Private routes/Privateroute";
+import Dashboard from "../Mainlayout/Dashboard";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -33,6 +34,13 @@ const router = createBrowserRouter([
     }
   ]
   },
+  {
+    path:'/dashboard',
+    element:<Dashboard></Dashboard>,
+    children:[{
+
+    }]
+  }
 ]);
 
 export default router;
