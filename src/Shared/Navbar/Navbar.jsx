@@ -37,7 +37,7 @@ const Navbar = () => {
   <li><Link to={'/'}>Home</Link></li>
       <li><Link to={'/order/Dessert'}>Our Shop</Link></li>
       <li><Link to={'/menu'}>Menu</Link></li>
-      <li><Link to={'/dashboard'}> <FaShoppingCart /> <div className="badge badge-sm badge-secondary">+{carts.length}</div></Link></li>
+      <li><Link to={'/dashboard'} className='text-2xl'> <FaShoppingCart /> <div className="badge badge-sm badge-secondary text-gray-900">+{carts.length}</div></Link></li>
   </>
     return ( 
        <div className="navbar opacity-30 bg-black text-white fixed z-20 max-w-7xl">
