@@ -7,8 +7,11 @@ import { FaShoppingCart } from "react-icons/fa";
 import { MdBookmarkAdd } from "react-icons/md";
 import { IoIosPeople } from "react-icons/io";
 import { FaCalendarAlt } from "react-icons/fa";
-
+import { MdOutlineRestaurant } from "react-icons/md";
+import { FaBook } from "react-icons/fa";
+import { MdComment } from "react-icons/md";
 const Dashboard = () => {
+  const isAdmin=true;
   return (
     <div className="drawer lg:drawer-open">
       <input id="dashboard-drawer" type="checkbox" className="drawer-toggle" />
@@ -32,16 +35,34 @@ const Dashboard = () => {
             <span className="font-medium tracking-widest">Resturant</span>
           </h1>
           <ul className="menu text-base space-y-4 mt-6">
-            <li><Link><IoMdHome/> User Home</Link></li>
+            {
+              isAdmin?
+              <>
+              <li><Link><IoMdHome/> Admin Home</Link></li>
+            <li><Link><MdOutlineRestaurant /> Add Items</Link></li>
+            <li><Link ><GiHamburgerMenu /> Manage Items</Link></li>
+            <li><Link><FaBook /> Manage Bookings</Link></li>
+            <li><Link to={'allusers'}><IoIosPeople /> All Users</Link></li>
+            <hr className="text-white" />
+            <li><Link to="/"><IoMdHome /> Home</Link></li>
+            <li><Link to="/menu"><GiHamburgerMenu /> Menu</Link></li>
+            <li><Link to="/order/somecat"><GiShoppingBag /> Shop</Link></li>
+            <li><Link to="/contact"><MdEmail /> Contact</Link></li>
+              </>
+              :             
+              <>
+              <li><Link><IoMdHome/> User Home</Link></li>
             <li><Link><FaCalendarAlt /> Reservation</Link></li>
             <li><Link to="mycarts"><FaShoppingCart /> My Cart</Link></li>
-            <li><Link><IoIosPeople /> Add review</Link></li>
+            <li><Link><MdComment /> Add review</Link></li>
             <li><Link><MdBookmarkAdd /> My bookings</Link></li>
             <hr className="text-white" />
             <li><Link to="/"><IoMdHome /> Home</Link></li>
             <li><Link to="/menu"><GiHamburgerMenu /> Menu</Link></li>
             <li><Link to="/order/somecat"><GiShoppingBag /> Shop</Link></li>
             <li><Link to="/contact"><MdEmail /> Contact</Link></li>
+              </>
+            }
           </ul>
         </div>
       </div>

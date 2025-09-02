@@ -11,6 +11,7 @@ import Login from "../Accounts/Login";
 import Privateroute from "../Private routes/Privateroute";
 import Dashboard from "../Mainlayout/Dashboard";
 import Mycarts from "../Pages/Mycarts/Mycarts";
+import Allusers from "../Adminroutes/Allusers/Allusers";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -37,11 +38,16 @@ const router = createBrowserRouter([
   },
   {
     path:'/dashboard',
-    element:<Dashboard></Dashboard>,
+    element:<Privateroute><Dashboard></Dashboard></Privateroute> ,
     children:[{
          path:'mycarts',
          element:<Mycarts></Mycarts>
-    }]
+    },
+    //admin routes
+  {
+  path:'allusers',
+  element:<Allusers></Allusers>
+  }]
   }
 ]);
 
