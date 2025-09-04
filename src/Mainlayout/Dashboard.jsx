@@ -10,8 +10,9 @@ import { FaCalendarAlt } from "react-icons/fa";
 import { MdOutlineRestaurant } from "react-icons/md";
 import { FaBook } from "react-icons/fa";
 import { MdComment } from "react-icons/md";
+import UseAdmin from '../Hooks/UseAdmin';
 const Dashboard = () => {
-  const isAdmin=true;
+  const [isAdmin]=UseAdmin();
   return (
     <div className="drawer lg:drawer-open">
       <input id="dashboard-drawer" type="checkbox" className="drawer-toggle" />
@@ -39,7 +40,7 @@ const Dashboard = () => {
               isAdmin?
               <>
               <li><Link><IoMdHome/> Admin Home</Link></li>
-            <li><Link><MdOutlineRestaurant /> Add Items</Link></li>
+            <li><Link to={'/dashboard/additem'}><MdOutlineRestaurant /> Add Items</Link></li>
             <li><Link ><GiHamburgerMenu /> Manage Items</Link></li>
             <li><Link><FaBook /> Manage Bookings</Link></li>
             <li><Link to={'allusers'}><IoIosPeople /> All Users</Link></li>
