@@ -4,6 +4,7 @@ import useCarts from '../../Hooks/UseCarts';
 import { AiFillDelete } from "react-icons/ai";
 import useAxiosSecure from '../../Hooks/UseAxiosSecure';
 import Swal from 'sweetalert2';
+import { Link } from 'react-router-dom';
 const Mycarts = () => {
     const axiosinstance=useAxiosSecure()
     const [carts,refetch]=useCarts();
@@ -45,7 +46,12 @@ Swal.fire({
                     <div className='md:text-3xl text-lg font-bold flex justify-between w-full items-center p-6'>
         <p>Total Orders:{carts.length}</p>
         <p>Total Price: ${carts.reduce((total,item)=>total+item.price,0)}</p>
-        <p><button className='btn bg-[#D1A054]'>Pay</button></p>
+        <p>
+          {carts.length>0?<Link to={'/dashboard/payment'}>
+          <button className='btn bg-[#D1A054]'>Pay</button>
+          </Link>:<button disabled className='btn bg-[#D1A054]'>Pay</button>}
+          
+          </p>
       </div>
   <table className="table table-zebra">
     <thead>

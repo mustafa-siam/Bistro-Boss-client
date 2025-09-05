@@ -11,6 +11,7 @@ import { MdOutlineRestaurant } from "react-icons/md";
 import { FaBook } from "react-icons/fa";
 import { MdComment } from "react-icons/md";
 import UseAdmin from '../Hooks/UseAdmin';
+import { MdOutlinePayment } from "react-icons/md";
 const Dashboard = () => {
   const [isAdmin]=UseAdmin();
   return (
@@ -54,6 +55,7 @@ const Dashboard = () => {
               <>
               <li><Link><IoMdHome/> User Home</Link></li>
             <li><Link><FaCalendarAlt /> Reservation</Link></li>
+            <li><Link><MdOutlinePayment />Payment History</Link></li>
             <li><Link to="mycarts"><FaShoppingCart /> My Cart</Link></li>
             <li><Link><MdComment /> Add review</Link></li>
             <li><Link><MdBookmarkAdd /> My bookings</Link></li>

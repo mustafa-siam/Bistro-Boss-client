@@ -16,6 +16,7 @@ import Additems from "../Adminroutes/Additems/Additems";
 import Adminroute from "../Private routes/Adminroute";
 import Manageitems from "../Adminroutes/ManageItems/Manageitems";
 import Updateitem from "../Adminroutes/Updateitem/Updateitem";
+import Payment from "../Userroutes/Payment/Payment";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
     children:[{
          path:'mycarts',
          element:<Mycarts></Mycarts>
+    },
+    {
+      path:"payment",
+      element:<Payment></Payment>
     },
     //admin routes
   {
