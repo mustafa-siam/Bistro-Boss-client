@@ -41,7 +41,7 @@ const Dashboard = () => {
               <>
               <li><Link><IoMdHome/> Admin Home</Link></li>
             <li><Link to={'/dashboard/additem'}><MdOutlineRestaurant /> Add Items</Link></li>
-            <li><Link ><GiHamburgerMenu /> Manage Items</Link></li>
+            <li><Link to={'/dashboard/manageitem'}><GiHamburgerMenu /> Manage Items</Link></li>
             <li><Link><FaBook /> Manage Bookings</Link></li>
             <li><Link to={'allusers'}><IoIosPeople /> All Users</Link></li>
             <hr className="text-white" />
