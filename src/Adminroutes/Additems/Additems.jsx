@@ -8,7 +8,7 @@ import Swal from 'sweetalert2';
 const Additems = () => {
     const axiospublic=usePublicAxios()
     const axiossecure=useAxiosSecure()
-    const image_upload_token = "8e9b118dba7090b0a054bb8fc0eadeb1";
+    const image_upload_token = import.meta.env.VITE_IMAGE_UPLOAD_TOKEN;;
     const image_upload_api=`https://api.imgbb.com/1/upload?key=${image_upload_token}`
      const {
     register,
